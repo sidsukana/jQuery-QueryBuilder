@@ -32,7 +32,11 @@
     "is_empty": "is empty",
     "is_not_empty": "is not empty",
     "is_null": "is null",
-    "is_not_null": "is not null"
+    "is_not_null": "is not null",
+    "has_flag": "has flag",
+    "not_has_flag": "not has flag",
+    "has_mask": "has mask",
+    "not_has_mask": "not has mask"
   },
 
   "errors": {

@@ -114,7 +114,11 @@ QueryBuilder.OPERATORS = {
     is_empty:         { type: 'is_empty',         nb_inputs: 0, multiple: false, apply_to: ['string'] },
     is_not_empty:     { type: 'is_not_empty',     nb_inputs: 0, multiple: false, apply_to: ['string'] },
     is_null:          { type: 'is_null',          nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean'] },
-    is_not_null:      { type: 'is_not_null',      nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean'] }
+    is_not_null:      { type: 'is_not_null',      nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean'] },
+    has_flag:         { type: 'has_flag',         nb_inputs: 1, multiple: false, apply_to: ['number'] },
+    not_has_flag:     { type: 'not_has_flag',     nb_inputs: 1, multiple: false, apply_to: ['number'] },
+    has_mask:         { type: 'has_mask',         nb_inputs: 1, multiple: false, apply_to: ['number'] },
+    not_has_mask:     { type: 'not_has_mask',     nb_inputs: 1, multiple: false, apply_to: ['number'] }
 };
 
 /**
@@ -183,7 +187,11 @@ QueryBuilder.DEFAULTS = {
         'is_empty',
         'is_not_empty',
         'is_null',
-        'is_not_null'
+        'is_not_null',
+        'has_flag',
+        'not_has_flag',
+        'has_mask',
+        'not_has_mask'
     ],
 
     icons: {

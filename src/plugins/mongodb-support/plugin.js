@@ -26,7 +26,11 @@ QueryBuilder.defaults({
         is_empty:         function(v) { return ''; },
         is_not_empty:     function(v) { return { '$ne': '' }; },
         is_null:          function(v) { return null; },
-        is_not_null:      function(v) { return { '$ne': null }; }
+        is_not_null:      function(v) { return { '$ne': null }; },
+        has_flag:         function(v) { return { '$bitsAnySet': v[0] }; },
+        not_has_flag:     function(v) { return { '$bitsAnyClear': v[0] }; },
+        has_mask:         function(v) { return { '$bitsAllSet': v[0] }; },
+        not_has_mask:     function(v) { return { '$bitsAllClear': v[0] }; }
         // @formatter:on
     },
 
@@ -88,6 +92,18 @@ QueryBuilder.defaults({
         },
         $gte: function(v) {
             return { 'val': v.$gte, 'op': 'greater_or_equal' };
+        },
+        $bitsAnySet: function(v) {
+            return { 'val': v.$bitsAnySet, 'op': 'has_flag' };
+        },
+        $bitsAnyClear: function(v) {
+            return { 'val': v.$bitsAnyClear, 'op': 'not_has_flag' };
+        },
+        $bitsAllSet: function(v) {
+            return { 'val': v.$bitsAnySet, 'op': 'has_mask' };
+        },
+        $bitsAllClear: function(v) {
+            return { 'val': v.$bitsAnySet, 'op': 'not_has_mask' };
         }
     }
 });
